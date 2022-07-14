@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "rules": {
+    "comma-dangle": "error",
+    "eol-last": "error",
+    "indent": ["error", 2],
+    "jsx-quotes": ["error", "prefer-single"],
+    "no-trailing-spaces": "error",
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off"
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "ignorePatterns": ["vite.config.js", "dist/"]
+}
