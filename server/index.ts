@@ -4,9 +4,9 @@ import express from 'express'
 import compression from 'compression'
 import fetch, { Headers, Request, Response } from 'cross-fetch'
 import { renderPage } from 'vite-plugin-ssr'
-import { type Session } from 'next-auth'
-import { PageContext } from '../renderer/types'
 import { clientPromise } from '../database/mongodb'
+import { type Session } from 'next-auth'
+import { type PageContext } from '../renderer/types'
 
 
 if (!global.fetch) {
@@ -22,7 +22,10 @@ if (!global.fetch) {
   const root = `${__dirname}/..`
   const port = process.env.PORT || 3000
 
+  // Ensure that the database connection is ready before using it
   await clientPromise
+
+  // Database is ready, we're safe to go
   const { NextAuthMiddleware } = await import('./auth')
 
   const server = express()
